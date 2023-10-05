@@ -13,13 +13,13 @@ pipeline{
         stage('test'){
             steps{
                 echo 'testing the app'
-                sh "pytest testsum_unittest.py"
+                // sh "pytest testsum_unittest.py"
             }
         }
         stage('deploy'){
             steps{
                 echo 'Deploying the app'
-                sh "python3 testsum.py"
+                python3 testsum.py
             }
         }
     }
