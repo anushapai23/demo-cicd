@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        'label' : 'python'
+        label 'python'
     }
     stages{
         stage('Build'){
