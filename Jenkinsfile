@@ -4,9 +4,9 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Building the app'
-                sh 'docker build -t python-app .'
-                sh 'docker run -ti python-app'
-                echo '1,2'
+                // sh 'docker build -t python-app .'
+                // sh 'docker run -ti python-app'
+                // echo '1,2'
             }
         }
         stage('test'){
