@@ -19,7 +19,7 @@ pipeline{
         stage('deploy'){
             steps{
                 echo 'Deploying the app'
-                // sh 'python3 testsum.py'
+                sh 'python3 testsum.py'
             }
         }
     }
