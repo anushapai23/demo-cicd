@@ -1,21 +1,13 @@
 pipeline{
-    agent{
-        docker{
-            image 'python:3'
-        }
+    agent {
+        label 'Built-In Node'
     }
     stages{
-        stage('Checkout'){
+        stage('build'){
             steps{
-                checkout scmGit(
-                    branches: [[name: 'main']],
-                    userRemoteConfigs: [[url: 'https://github.com/anushapai23/demo-cicd']])
+                sh 'docker build -t python-app .'
             }
-        }
-        stage('Build'){
-            steps{
-                echo 'Building the app'
-            }
+
         }
         stage('test'){
             steps{
@@ -26,7 +18,7 @@ pipeline{
         stage('deploy'){
             steps{
                 echo 'Deploying the app'
-                sh 'python3 testsum.py< inputfile.txt'
+                sh 'docker run -ti python-app'
             }
         }
     }
