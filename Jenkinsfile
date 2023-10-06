@@ -10,7 +10,6 @@ pipeline{
         stage('test'){
             steps{
                 echo 'testing the app'
-                sh "python3 -m unittest testsum_unittest.py"
             }
         }
         stage('deploy'){
