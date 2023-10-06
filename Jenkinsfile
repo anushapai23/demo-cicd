@@ -15,7 +15,7 @@ pipeline{
         stage('deploy'){
             steps{
                 echo 'Deploying the app'
-                sh 'docker run -ti python-app'
+                sh 'docker run -i python-app'
             }
         }
     }
