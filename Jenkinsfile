@@ -5,6 +5,13 @@ pipeline{
         }
     }
     stages{
+        stage('Checkout'){
+            steps{
+                checkout scmGit(
+                    branches: [[name: 'main']],
+                    userRemoteConfigs: [[url: 'https://github.com/anushapai23/demo-cicd']])
+            }
+        }
         stage('Build'){
             steps{
                 echo 'Building the app'
