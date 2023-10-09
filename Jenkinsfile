@@ -1,21 +1,27 @@
 pipeline{
     agent any
     stages{
+        stage('test'){
+            agent{
+                docker{
+                    image python:3
+                }
+            }
+            steps{
+                echo 'Testing the app'
+                sh 'python3 -m unittest testsum_unittest.py'
+            }
+        }
         stage('build'){
             steps{
                 sh 'docker build -t python-app .'
             }
 
         }
-        stage('test'){
-            steps{
-                echo 'testing the app'
-            }
-        }
         stage('deploy'){
             steps{
                 echo 'Deploying the app'
-                sh 'docker run -i python-app < inputfile.txt'
+                sh 'docker run python-app < inputfile.txt'
             }
         }
     }
