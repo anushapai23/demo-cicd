@@ -5,10 +5,10 @@ pipeline{
             agent{
                 docker{
                     image 'python:3'
-                    sh 'python3 -m pip install flake8'
                 }
             }
             steps{
+                sh 'python3 -m pip install flake8'
                 echo 'Peforming the unit tests'
                 sh 'python3 -m unittest testsum_unittest.py'
                 echo 'Performing the lint tests'
