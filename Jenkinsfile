@@ -8,7 +8,7 @@ pipeline{
                 }
             }
             steps{
-                echo ' pOll SCM on push events'
+                echo 'Check if SCM is polled every minute'
                 echo 'Peforming the unit tests'
                 sh 'python3 -m unittest testsum_unittest.py'
             }
